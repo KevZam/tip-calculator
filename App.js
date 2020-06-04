@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Header from './components/Header';
+import Start from './screens/Start';
+import Question from './screens/Question'
 
 export default function App() {
+  const [userPage, setUserPage] = useState(0);
+  const [userTotal, setUserTotal] = useState("");
+
+  let content;
+
+  const handleSubmitTotal = userInput => {
+    setUserTotal(parseFloat(userInput))
+    setUserPage((userPage) => userPage + 1)
+  }
+  console.log(userTotal)
+
+  const handlePreviousPage = () => {
+    setUserPage((userPage) => userPage - 1)
+  }
+
+  if (userPage === 0) {
+    content = <Start submitTotal={handleSubmitTotal} />
+  }
+  else if (userPage === 1) {
+    content = <Question prevPage={handlePreviousPage} />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={styles.screen}>
+      <Header title={"Tipper"}></Header>
+      {content}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  }
 });
