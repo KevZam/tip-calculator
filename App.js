@@ -24,7 +24,7 @@ export default function App() {
     content = <Start submitTotal={handleSubmitTotal} />
   }
   else if (userPage === 1) {
-    content = <Question prevPage={handlePreviousPage} />
+    content = <Question prevPage={handlePreviousPage} userTotal={userTotal} />
   }
 
   return (
