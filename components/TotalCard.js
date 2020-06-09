@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, } from 'react-native';
 import Input from './Input';
 import Card from './Card';
-import { Button } from 'react-native-elements';
+import { Button, ThemeProvider } from 'react-native-elements';
 import Cell from './Cell'
+import Slider from "react-native-slider";
+
+const theme = {
+  colors: {
+    primary: '#00bcd4',
+  }
+}
 
 const TotalCard = props => {
   const [tipAmount, setTipAmount] = useState(.15)
@@ -19,6 +26,7 @@ const TotalCard = props => {
   console.log(tipInDollars)
   let total = (parseFloat(props.userTotal) + parseFloat(tipInDollars)).toFixed(2)
 
+  let tipPercentage = '(' + ((tipAmount * 100).toFixed(0)) + '%)'
   return (
     <View>
       <View style={styles.top}>
@@ -32,8 +40,11 @@ const TotalCard = props => {
           <Button style={styles.button} title={'18%'} onPress={() => handleButtonClick(.18)}></Button>
           <Button style={styles.button} title={'20%'} onPress={() => handleButtonClick(.20)}></Button>
         </View>
+        <View style={styles.sliderContainer}>
+          <Slider value={tipAmount} onValueChange={value => handleButtonClick(value)} minimumValue={.01} maximumValue={.30} step={.01}></Slider>
+        </View>
         <View style={styles.container}>
-          <Cell title={"Tip"} data={tipInDollars}></Cell>
+          <Cell tipAmount={tipPercentage} title={"Tip"} data={tipInDollars}></Cell>
         </View>
       </View>
       <View style={styles.container}>
@@ -62,6 +73,12 @@ const styles = StyleSheet.create({
   top: {
     borderBottomWidth: 1,
     borderColor: 'black'
+  },
+  sliderContainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    alignItems: "stretch",
+    justifyContent: "center"
   }
 
 })
