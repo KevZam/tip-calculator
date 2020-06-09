@@ -14,7 +14,6 @@ export default function App() {
     setUserTotal(parseFloat(userInput))
     setUserPage((userPage) => userPage + 1)
   }
-  console.log(userTotal)
 
   const handlePreviousPage = () => {
     setUserPage((userPage) => userPage - 1)

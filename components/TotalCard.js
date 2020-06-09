@@ -21,12 +21,22 @@ const TotalCard = props => {
     setTipInDollars((percentage * props.userTotal).toFixed(2))
   }
 
+  const handleRoundUp = () => {
+    let centDiff = (Math.ceil(total)) - total;
+    setTipInDollars((parseFloat(tipInDollars) + centDiff).toFixed(2));
 
+  }
+
+  const handleRoundDown = () => {
+    let centDiff = total - (Math.floor(total))
+    setTipInDollars((parseFloat(tipInDollars) - centDiff).toFixed(2));
+  }
 
   console.log(tipInDollars)
   let total = (parseFloat(props.userTotal) + parseFloat(tipInDollars)).toFixed(2)
 
   let tipPercentage = '(' + ((tipAmount * 100).toFixed(0)) + '%)'
+
   return (
     <View>
       <View style={styles.top}>
@@ -42,6 +52,8 @@ const TotalCard = props => {
             <Button style={styles.button} title={'20%'} onPress={() => handleButtonClick(.20)}></Button>
           </ThemeProvider>
         </View>
+        <Button style={styles.button} title={'Round Up'} onPress={() => handleRoundUp()}></Button>
+        <Button style={styles.button} title={'Round Down'} onPress={() => handleRoundDown()}></Button>
         <View style={styles.sliderContainer}>
           <Slider value={tipAmount} onValueChange={value => handleButtonClick(value)} minimumValue={.01} maximumValue={.30} step={.01}></Slider>
         </View>
