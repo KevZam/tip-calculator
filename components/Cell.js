@@ -4,9 +4,7 @@ import { View, StyleSheet, Text } from 'react-native';
 const Cell = props => {
   return (
     <View style={{ ...styles.cell, ...props.style }}>
-      <View style={styles.container}>
-        <Text style={styles.text}>{props.title} {props.tipAmount}</Text>
-      </View>
+      <Text style={styles.text}>{props.title}</Text>
       <View style={styles.textBox}>
         <Text style={styles.text}>{props.data}</Text>
       </View>
@@ -26,18 +24,13 @@ const styles = StyleSheet.create({
     padding: 10,
     marginEnd: 20,
   },
-  tipText: {
-    fontSize: 23,
-    padding: 10,
-  },
   textBox: {
     backgroundColor: 'white',
     borderRadius: 10,
     height: 40,
     width: 200,
     alignItems: 'flex-end'
-  },
-
+  }
 })
 
 export default Cell;
