@@ -35,10 +35,12 @@ const TotalCard = props => {
         </View>
         <Text style={styles.text}>Tip Percentage</Text>
         <View style={styles.container}>
-          <Button style={styles.button} title={'10%'} onPress={() => handleButtonClick(.10)}></Button>
-          <Button style={styles.button} title={'15%'} onPress={() => handleButtonClick(.15)}></Button>
-          <Button style={styles.button} title={'18%'} onPress={() => handleButtonClick(.18)}></Button>
-          <Button style={styles.button} title={'20%'} onPress={() => handleButtonClick(.20)}></Button>
+          <ThemeProvider theme={theme}>
+            <Button style={styles.button} title={'10%'} onPress={() => handleButtonClick(.10)}></Button>
+            <Button style={styles.button} title={'15%'} onPress={() => handleButtonClick(.15)}></Button>
+            <Button style={styles.button} title={'18%'} onPress={() => handleButtonClick(.18)}></Button>
+            <Button style={styles.button} title={'20%'} onPress={() => handleButtonClick(.20)}></Button>
+          </ThemeProvider>
         </View>
         <View style={styles.sliderContainer}>
           <Slider value={tipAmount} onValueChange={value => handleButtonClick(value)} minimumValue={.01} maximumValue={.30} step={.01}></Slider>
