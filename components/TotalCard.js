@@ -32,7 +32,6 @@ const TotalCard = props => {
     let centDiff = (Math.ceil(total)) - total;
     setTipInDollars((parseFloat(tipInDollars) + centDiff).toFixed(2));
   }
-  console.log(tipAmount)
 
   const handleRoundDown = () => {
     let centDiff = total - (Math.floor(total))
@@ -89,14 +88,16 @@ const TotalCard = props => {
 }
 
 const styles = StyleSheet.create({
+  topElement: {
+    backgroundColor: 'black'
+  },
   container: {
     flexDirection: 'row',
-    padding: 10,
-    borderColor: 'black',
-    borderBottomWidth: 1,
-    marginVertical: 10,
+    // padding: 10,
+    // borderColor: 'black',
+    // borderBottomWidth: 1,
+    marginVertical: 5,
     paddingVertical: 15
-
   },
   buttons: {
     flexDirection: 'row',
@@ -118,8 +119,6 @@ const styles = StyleSheet.create({
 
   },
   top: {
-    borderBottomWidth: 1,
-    borderColor: 'black',
     padding: 20
   },
   sliderContainer: {
@@ -131,7 +130,8 @@ const styles = StyleSheet.create({
   cellText: {
     fontSize: 23,
     padding: 10,
-    marginEnd: 20,
+    marginStart: -20,
+    marginEnd: 50,
   },
 
 })

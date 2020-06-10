@@ -27,7 +27,7 @@ const Start = props => {
           <Input onChangeText={numberInputHandler} value={enteredValue} blurOnSubmit keyboardType="numeric" />
           <View style={styles.buttonContainer}>
             <ThemeProvider theme={theme}>
-              <Button title="Next" onPress={() => props.submitTotal(enteredValue)}>
+              <Button title="Calculate" onPress={() => props.submitTotal(enteredValue)}>
               </Button>
             </ThemeProvider>
           </View>

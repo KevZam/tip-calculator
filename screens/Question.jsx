@@ -17,7 +17,7 @@ const StartGameScreen = props => {
       <TotalCard userTotal={props.userTotal}></TotalCard>
       <View style={styles.button}>
         <ThemeProvider theme={theme}>
-          <Button title="Previous" onPress={props.prevPage} />
+          <Button title="Restart" onPress={props.prevPage} />
         </ThemeProvider>
       </View>
 
