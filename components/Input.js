@@ -4,7 +4,12 @@ import { View, StyleSheet, TextInput, Text } from 'react-native';
 const Input = props => {
   // this {...props} syntax spreads all the props you have and forwards them to the component. The style attribute 
   // will take precedence.
-  return <View style={styles.inputContainer}><TextInput {...props} style={styles.input} placeholder={"$"}></TextInput></View>
+  return (
+    <View style={styles.inputContainer}>
+      <TextInput {...props} style={styles.input} placeholder={"$"}>
+      </TextInput>
+    </View>)
+
 }
 
 const styles = StyleSheet.create({
