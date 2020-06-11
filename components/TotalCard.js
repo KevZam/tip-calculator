@@ -33,6 +33,7 @@ const TotalCard = props => {
     setTipInDollars((parseFloat(tipInDollars) + centDiff).toFixed(2));
   }
 
+
   const handleRoundDown = () => {
     let centDiff = total - (Math.floor(total))
     setTipInDollars((parseFloat(tipInDollars) - centDiff).toFixed(2));
@@ -46,7 +47,7 @@ const TotalCard = props => {
     <View>
       <View style={styles.top}>
         <View style={styles.container}>
-          <Cell title={"Bill Total"} data={props.userTotal}></Cell>
+          <Cell title={"Bill Total:"} data={props.userTotal}></Cell>
         </View>
 
         <View style={styles.container}>
@@ -69,14 +70,14 @@ const TotalCard = props => {
 
 
         <View style={styles.container}>
-          <Cell title={"Total"} data={total}></Cell>
+          <Cell title={"Total:"} data={total}></Cell>
         </View>
 
         <View style={styles.buttonContainer}>
           <Text style={styles.cellText}>Round Total</Text>
           <ThemeProvider theme={theme}>
-            <Button style={styles.button} title={'Up'} onPress={() => handleRoundUp()}></Button>
             <Button style={styles.button} title={'Down'} onPress={() => handleRoundDown()}></Button>
+            <Button style={styles.button} title={'Up'} onPress={() => handleRoundUp()}></Button>
           </ThemeProvider>
         </View>
 

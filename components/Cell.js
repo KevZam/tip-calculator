@@ -7,9 +7,8 @@ const Cell = props => {
       <View style={styles.container}>
         <Text style={styles.text}>{props.title} {props.tipAmount}</Text>
       </View>
-
       <View style={styles.textBox}>
-        <Text style={styles.text}>{props.data}</Text>
+        <Text style={styles.text}>${props.data}</Text>
       </View>
     </View>
   )
@@ -20,7 +19,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 42,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    borderWidth: 1,
+    borderColor: 'black',
+    backgroundColor: 'white',
+    borderRadius: 5
   },
   text: {
     fontSize: 23,
@@ -33,9 +36,9 @@ const styles = StyleSheet.create({
   },
   textBox: {
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderRadius: 5,
     height: 40,
-    width: 200,
+    width: 135,
     alignItems: 'flex-end'
   }
 })

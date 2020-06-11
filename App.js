@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import Header from './components/Header';
 import Start from './screens/Start';
 import Question from './screens/Question'
@@ -11,8 +11,13 @@ export default function App() {
   let content;
 
   const handleSubmitTotal = userInput => {
-    setUserTotal(parseFloat(userInput))
-    setUserPage((userPage) => userPage + 1)
+    if (userInput === "" || userInput === undefined || userInput === null) {
+      return;
+    }
+    else {
+      setUserTotal(parseFloat(userInput))
+      setUserPage((userPage) => userPage + 1)
+    }
   }
 
   const handlePreviousPage = () => {
@@ -30,6 +35,7 @@ export default function App() {
     <View style={styles.screen}>
       <Header title={"Tipper"}></Header>
       {content}
+
     </View>
   );
 }
@@ -37,5 +43,6 @@ export default function App() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: '#eee'
   }
 });

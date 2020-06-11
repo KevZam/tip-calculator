@@ -18,10 +18,12 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderRadius: 100,
+    borderRadius: 1,
     textAlign: 'center',
-    width: 125,
-    fontSize: 40
+    width: 150,
+    fontSize: 40,
+    borderWidth: 1,
+    borderColor: 'grey'
   }
 })
 

@@ -33,6 +33,7 @@ const Start = props => {
           </View>
         </View>
       </View>
+
     </TouchableWithoutFeedback>
   )
 }
